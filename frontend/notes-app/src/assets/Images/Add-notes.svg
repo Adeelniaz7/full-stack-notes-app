@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <!-- Background -->
+  <rect width="500" height="400" fill="#f0f4ff" rx="20"/>
+
+  <!-- Notebook / Notepad -->
+  <rect x="130" y="60" width="240" height="280" rx="16" fill="#ffffff" stroke="#c7d2fe" stroke-width="2.5"/>
+
+  <!-- Notebook spine -->
+  <rect x="130" y="60" width="24" height="280" rx="8" fill="#6366f1"/>
+
+  <!-- Lines on notepad -->
+  <line x1="175" y1="120" x2="350" y2="120" stroke="#e0e7ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="175" y1="150" x2="350" y2="150" stroke="#e0e7ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="175" y1="180" x2="350" y2="180" stroke="#e0e7ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="175" y1="210" x2="310" y2="210" stroke="#e0e7ff" stroke-width="2" stroke-linecap="round"/>
+  <line x1="175" y1="240" x2="290" y2="240" stroke="#e0e7ff" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Pencil -->
+  <g transform="rotate(-35, 360, 270)">
+    <rect x="340" y="200" width="18" height="90" rx="3" fill="#fbbf24"/>
+    <polygon points="340,290 358,290 349,315" fill="#f97316"/>
+    <polygon points="344,305 354,305 349,315" fill="#1e1e1e"/>
+    <rect x="340" y="200" width="18" height="14" rx="3" fill="#d1d5db"/>
+    <rect x="340" y="210" width="18" height="4" fill="#9ca3af"/>
+  </g>
+
+  <!-- Plus / Add circle button -->
+  <circle cx="355" cy="320" r="38" fill="#6366f1"/>
+  <circle cx="355" cy="320" r="38" fill="none" stroke="#4338ca" stroke-width="2"/>
+  <line x1="355" y1="302" x2="355" y2="338" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  <line x1="337" y1="320" x2="373" y2="320" stroke="white" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Sparkles -->
+  <circle cx="100" cy="100" r="5" fill="#a5b4fc"/>
+  <circle cx="420" cy="80" r="4" fill="#c7d2fe"/>
+  <circle cx="440" cy="200" r="3" fill="#818cf8"/>
+  <circle cx="80" cy="280" r="4" fill="#a5b4fc"/>
+
+  <!-- Text -->
+  <text x="250" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#6366f1">Create a New Note</text>
+</svg>

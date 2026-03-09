@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <!-- Background -->
+  <rect width="500" height="400" fill="#f8f9ff" rx="20"/>
+
+  <!-- Empty folder -->
+  <rect x="140" y="130" width="220" height="160" rx="14" fill="#e0e7ff" stroke="#c7d2fe" stroke-width="2.5"/>
+  <rect x="140" y="110" width="90" height="30" rx="10" fill="#c7d2fe"/>
+
+  <!-- Magnifying glass -->
+  <circle cx="270" cy="200" r="55" fill="white" stroke="#6366f1" stroke-width="5"/>
+  <circle cx="270" cy="200" r="38" fill="#eef2ff"/>
+  <line x1="312" y1="242" x2="348" y2="280" stroke="#6366f1" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Sad face inside magnifier -->
+  <circle cx="257" cy="193" r="4" fill="#6366f1"/>
+  <circle cx="283" cy="193" r="4" fill="#6366f1"/>
+  <path d="M257 215 Q270 205 283 215" stroke="#6366f1" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Question marks -->
+  <text x="100" y="180" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c7d2fe">?</text>
+  <text x="390" y="160" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#c7d2fe">?</text>
+  <text x="405" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#e0e7ff">?</text>
+  <text x="88" y="300" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#e0e7ff">?</text>
+
+  <!-- Dashed lines -->
+  <line x1="155" y1="165" x2="220" y2="165" stroke="#c7d2fe" stroke-width="2" stroke-dasharray="6,4" stroke-linecap="round"/>
+  <line x1="155" y1="185" x2="200" y2="185" stroke="#c7d2fe" stroke-width="2" stroke-dasharray="6,4" stroke-linecap="round"/>
+
+  <!-- Text -->
+  <text x="250" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#6366f1">No Data Found</text>
+  <text x="250" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#94a3b8">Try a different search or add a new note</text>
+</svg>
