@@ -1,7 +1,7 @@
 import React from 'react'
 import { getInitials } from '../../utils/helper'
 
-const Profileinfo = ({ userInfo, onLogout }) => {
+const ProfileInfo = ({ userInfo, onLogout }) => {
   if (!userInfo) return null;
 
   return (
@@ -17,4 +17,4 @@ const Profileinfo = ({ userInfo, onLogout }) => {
   )
 }
 
-export default Profileinfo
+export default ProfileInfo

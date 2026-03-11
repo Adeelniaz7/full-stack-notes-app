@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Profileinfo from '../Cards/Profileinfo'
+import ProfileInfo from '../Cards/ProfileInfo'
 import { useNavigate } from "react-router-dom";
 import Searchbar from '../Searchbar/Searchbar';
 
@@ -43,7 +43,7 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
       </div>
 
       <div className='flex-1 flex justify-end'>
-        <Profileinfo userInfo={userInfo} onLogout={onLogout} />
+        <ProfileInfo userInfo={userInfo} onLogout={onLogout} />
       </div>
     </div>
   )
