@@ -22,6 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
     cors({
         origin: "*",
+        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
     })
 );
 
@@ -363,6 +365,7 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
         });
     }
 })
-app.listen(8000);
+const PORT = process.env.PORT || 8000;
+app.listen(PORT);
 
 module.exports = app;
