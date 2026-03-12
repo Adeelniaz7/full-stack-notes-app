@@ -1,6 +1,7 @@
 import axios from "axios";
 import { BASE_URL } from "./constants";
 
+console.log("Current BASE_URL:", BASE_URL);
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
     timeout: 10000,
