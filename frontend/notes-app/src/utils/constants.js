@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://notes-app-nine-smoky.vercel.app'
+export const BASE_URL = 'https://vercel.com/adeelniaz7s-projects/notes-app-uh6k'
