@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
     cors({
-        origin: "*",
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
+        origin: ["https://gregarious-biscotti-9bfef5.netlify.app", "http://localhost:5173"],
+        methods:["GET", "POST", "PUT", "DELETE"],
+        credentials: true
     })
 );
 
