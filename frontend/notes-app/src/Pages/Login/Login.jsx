@@ -55,31 +55,43 @@ const Login = () => {
     <>
       <Navbar />
 
-      <div className='flex items-center justify-center mt-28'>
-        <div className='w-96 border rounded bg-white px-7 py-10'>
+      <div className='flex items-center justify-center min-h-[80vh] px-4'>
+        <div className='w-full max-w-md glass-card rounded-2xl px-8 py-12 transition-all duration-500 hover:shadow-indigo-500/10'>
           <form onSubmit={handleLogin}>
-            <h4 className="text-2xl mb-7">Login</h4>
+            <h4 className="text-3xl font-bold text-slate-800 mb-8 text-center italic">Welcome Back</h4>
 
-            <input
-              type="text"
-              placeholder="Email"
-              className="input-box"
-              value={email}
-              autoComplete="off"
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className="space-y-1">
+              <label className="input-label">Email Address</label>
+              <input
+                type="text"
+                placeholder="Enter your email"
+                className="input-box"
+                value={email}
+                autoComplete="off"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
-            <Passwordinput
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
+            <div className="space-y-1 mt-2">
+              <label className="input-label">Password</label>
+              <Passwordinput
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter your password"
+              />
+            </div>
 
-            <button type="submit" className="btn-primary">Login</button>
-            <p className=" text-sm text-center mt-4">
-              Not registered yet?{""}
-              <Link to="/SignUp" className="font-medium text-primary underline">
-                Create an account</Link>
+            {error && <p className="text-red-500 text-xs font-medium pb-4 animate-pulse">{error}</p>}
+
+            <button type="submit" className="btn-primary mt-4">
+              Sign In
+            </button>
+
+            <p className="text-sm text-center text-slate-600 mt-6">
+              New here?{" "}
+              <Link to="/SignUp" className="font-semibold text-indigo-600 hover:text-indigo-700 underline transition-colors">
+                Create an account
+              </Link>
             </p>
           </form>
         </div>

@@ -26,9 +26,11 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
   }
 
   return (
-    <div className='bg-white flex items-center justify-between px-6 py-2 drop-shadow'>
-      <div className='flex-1 text-left'>
-        <h2 className='text-xl font-medium text-black py-2'>Notes</h2>
+    <div className='sticky top-0 z-50 glass-card flex items-center justify-between px-8 py-3 mb-6'>
+      <div className='flex-1'>
+        <h2 className='text-2xl font-bold text-slate-800 tracking-tight'>
+          Zen<span className="text-indigo-600">Notes</span>
+        </h2>
       </div>
 
       <div className='flex-1 flex justify-center'>
