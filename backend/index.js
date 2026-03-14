@@ -175,8 +175,8 @@ app.post("/login", async (req, res) => {
 // Get User
 app.get("/get-user", authenticateToken, async (req, res) => {
     try {
-        const { user } = req.user;
-        const isUser = await User.findOne({ _id: user._id });
+        const userPayload = req.user.user || req.user;
+        const isUser = await User.findOne({ _id: userPayload._id });
 
         if (!isUser) {
             return res.status(401).json({ error: true, message: "User not found" });
@@ -201,7 +201,7 @@ app.get("/get-user", authenticateToken, async (req, res) => {
 app.post("/add-note", authenticateToken, async (req, res) => {
     try {
         const { title, content, tags } = req.body;
-        const { user } = req.user;
+        const userPayload = req.user.user || req.user;
 
         if (!title) {
             return res.status(400).json({ error: true, message: "Title is required" });
@@ -217,7 +217,7 @@ app.post("/add-note", authenticateToken, async (req, res) => {
             title,
             content,
             tags: tags || [],
-            userId: user._id,
+            userId: userPayload._id,
         });
 
         await note.save();
@@ -299,10 +299,10 @@ app.get("/get-all-notes/", authenticateToken, async (req, res) => {
 // Delete Notes
 app.delete("/delete-note/:noteId", authenticateToken, async (req, res) => {
     const noteId = req.params.noteId;
-    const user = req.user.user;
+    const userPayload = req.user.user || req.user;
 
     try {
-        const note = await Note.findOne({ _id: noteId, userId: user._id });
+        const note = await Note.findOne({ _id: noteId, userId: userPayload._id });
         if (!note) {
             return res.status(404).json({ error: true, message: "Note not found" });
         }
