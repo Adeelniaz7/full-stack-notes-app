@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
     cors({
-        origin: ["https://gregarious-biscotti-9bfef5.netlify.app", "http://localhost:5173"],
+        origin: ["https://gregarious-biscotti-9bfef5.netlify.app", "https://roaring-faloodeh-2cde0d.netlify.app", "http://localhost:5173"],
         methods:["GET", "POST", "PUT", "DELETE"],
         credentials: true
     })
