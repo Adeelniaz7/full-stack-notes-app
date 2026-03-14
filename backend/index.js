@@ -1,5 +1,10 @@
 require("dotenv").config();
 
+// Fallback for ACCESS_TOKEN_SECRET if environment variable is not set in Vercel/Netlify
+if (!process.env.ACCESS_TOKEN_SECRET) {
+    process.env.ACCESS_TOKEN_SECRET = "632e9116904cb9ff5cabfa891e670bc906c02af4b817a0097bdd3b5d10a13069cee9e0b8f94c024527d5f0fb0f3a9678b5a2c88af9fd45a184110c4059d62352";
+}
+
 const config = require("./config.json");
 const mongoose = require("mongoose");
 
