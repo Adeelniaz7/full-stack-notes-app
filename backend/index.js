@@ -277,7 +277,7 @@ app.put("/edit-note/:noteId", authenticateToken, async (req, res) => {
 });
 
 // Get All Notes
-app.get("/get-all-notes/", authenticateToken, async (req, res) => {
+app.get("/get-all-notes", authenticateToken, async (req, res) => {
     const user = req.user.user || req.user;
 
     try {
@@ -357,7 +357,7 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
 })
 
 // Search Notes
-app.get("/search-notes/", authenticateToken, async (req, res) => {
+app.get("/search-notes", authenticateToken, async (req, res) => {
     const user = req.user.user || req.user;
     const { query } = req.query;
 
