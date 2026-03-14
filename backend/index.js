@@ -241,7 +241,7 @@ app.put("/edit-note/:noteId", authenticateToken, async (req, res) => {
     try {
         const noteId = req.params.noteId;
         const { title, content, tags, isPinned } = req.body;
-        const { user } = req.user;
+        const user = req.user.user || req.user;
 
         if (!title && !content && !tags) {
             return res
@@ -278,7 +278,7 @@ app.put("/edit-note/:noteId", authenticateToken, async (req, res) => {
 
 // Get All Notes
 app.get("/get-all-notes/", authenticateToken, async (req, res) => {
-    const { user } = req.user;
+    const user = req.user.user || req.user;
 
     try {
         const notes = await Note.find({ userId: user._id }).sort({ isPinned: -1 });
@@ -306,7 +306,7 @@ app.delete("/delete-note/:noteId", authenticateToken, async (req, res) => {
         if (!note) {
             return res.status(404).json({ error: true, message: "Note not found" });
         }
-        await Note.deleteOne({ _id: noteId, userId: user._id });
+        await Note.deleteOne({ _id: noteId, userId: userPayload._id });
 
         return res.json({
             error: false,
@@ -325,7 +325,7 @@ app.delete("/delete-note/:noteId", authenticateToken, async (req, res) => {
 app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
     const noteId = req.params.noteId;
     const { isPinned } = req.body;
-    const user = req.user.user;
+    const user = req.user.user || req.user;
 
     if (!req.body.hasOwnProperty('isPinned')) {
         return res.status(400).json({ error: true, message: "No change provided" });
@@ -358,7 +358,7 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
 
 // Search Notes
 app.get("/search-notes/", authenticateToken, async (req, res) => {
-    const { user } = req.user;
+    const user = req.user.user || req.user;
     const { query } = req.query;
 
 
