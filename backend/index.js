@@ -8,7 +8,9 @@ if (!process.env.ACCESS_TOKEN_SECRET) {
 const config = require("./config.json");
 const mongoose = require("mongoose");
 
-mongoose.connect(config.connectionString);
+mongoose.connect(config.connectionString)
+    .then(() => console.log("Connected to MongoDB Atlas"))
+    .catch((err) => console.error("Could not connect to MongoDB Atlas", err));
 
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
@@ -77,7 +79,7 @@ app.post("/create-account", async (req, res) => {
 
         await user.save();
 
-        const accessToken = jwt.sign({ _id: user._id, email: user.email }, process.env.ACCESS_TOKEN_SECRET, {
+        const accessToken = jwt.sign({ user: { _id: user._id, email: user.email } }, process.env.ACCESS_TOKEN_SECRET, {
             expiresIn: "36000m",
         });
 
@@ -144,8 +146,8 @@ app.post("/login", async (req, res) => {
         }
 
         if (userInfo.email == email && userInfo.password == password) {
-            const user = { _id: userInfo._id, email: userInfo.email };
-            const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+            const userPayload = { user: { _id: userInfo._id, email: userInfo.email } };
+            const accessToken = jwt.sign(userPayload, process.env.ACCESS_TOKEN_SECRET, {
                 expiresIn: "36000m",
             });
 
