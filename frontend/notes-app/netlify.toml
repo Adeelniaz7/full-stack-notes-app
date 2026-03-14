@@ -1,8 +1,2 @@
-[build]
-  publish = "dist"
-  command = "npm run build"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# This file is redundant because we have one at the root.
+# Deleting content to avoid confusion.
