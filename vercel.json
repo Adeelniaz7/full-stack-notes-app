@@ -1,9 +1,18 @@
 {
-  "framework": "vite",
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/notes-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/frontend/notes-app/index.html"
     }
   ]
 }
