@@ -89,7 +89,7 @@ const Login = () => {
 
             <p className="text-sm text-center text-slate-600 mt-6">
               New here?{" "}
-              <Link to="/SignUp" className="font-semibold text-indigo-600 hover:text-indigo-700 underline transition-colors">
+              <Link to="/signup" className="font-semibold text-indigo-600 hover:text-indigo-700 underline transition-colors">
                 Create an account
               </Link>
             </p>
