@@ -1,4 +1,3 @@
-
 import Navbar from '../../components/Navbar/Navbar'
 import NoteCard from '../../components/Cards/NoteCard';
 import { MdAdd } from "react-icons/md"
@@ -11,6 +10,7 @@ import Toast from '../../components/ToastMessage/Toast';
 import EmptyCard from '../../components/EmptyCard/Emptycard';
 import AddNoteImg from '../../assets/Images/Add-notes.svg';
 import NoDataImg from '../../assets/Images/no-data.svg';
+import Loader from '../../components/Loader/Loader';
 
 Modal.setAppElement('#root');
 
@@ -31,6 +31,7 @@ const Home = () => {
   const [allNotes, setAllNotes] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const [isSearch, setIsSearch] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -70,6 +71,7 @@ const Home = () => {
 
   // Get all Notes
   const getAllNotes = async () => {
+    setIsLoading(true);
     try {
       const response = await axiosInstance.get("/get-all-notes");
 
@@ -79,11 +81,14 @@ const Home = () => {
       }
     } catch (error) {
       console.log("Unexpected error occurred.Please try again.")
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Search Notes
   const onSearchNote = async (query) => {
+    setIsLoading(true);
     try {
       const response = await axiosInstance.get("/search-notes", {
         params: { query },
@@ -94,6 +99,8 @@ const Home = () => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -153,6 +160,7 @@ const Home = () => {
   return (
     <>
       <Navbar userInfo={userInfo} onSearchNote={onSearchNote} handleClearSearch={handleClearSearch} />
+      {isLoading && <Loader />}
       <div className="container mx-auto px-6">
         {allNotes.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 pb-20">

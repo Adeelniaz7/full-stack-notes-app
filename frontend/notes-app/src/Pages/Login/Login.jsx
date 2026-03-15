@@ -11,6 +11,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -26,6 +27,7 @@ const Login = () => {
       return;
     }
     setError("")
+    setIsLoading(true);
 
     // Login API Call
     try {
@@ -48,6 +50,8 @@ const Login = () => {
       } else {
         setError("An unexpected error occurred.Please try again.");
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -83,8 +87,8 @@ const Login = () => {
 
             {error && <p className="text-red-500 text-xs font-medium pb-4 animate-pulse">{error}</p>}
 
-            <button type="submit" className="btn-primary mt-4">
-              Sign In
+            <button type="submit" className="btn-primary mt-4 flex items-center justify-center" disabled={isLoading}>
+              {isLoading ? <div className="loading-spinner"></div> : "Sign In"}
             </button>
 
             <p className="text-sm text-center text-slate-600 mt-6">

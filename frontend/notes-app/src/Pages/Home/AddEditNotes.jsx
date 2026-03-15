@@ -10,9 +10,11 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
   const [tags, setTags] = useState(noteData?.tags || []);
 
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Add Note
   const addNewNote = async () => {
+    setIsLoading(true);
     try {
       const response = await axiosInstance.post("/add-note", {
         title,
@@ -33,12 +35,15 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
       ) {
         setError(error.response.data.message)
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Edit Note
   const editNote = async () => {
     const noteId = noteData._id
+    setIsLoading(true);
     try {
       const response = await axiosInstance.put("/edit-note/" + noteId, {
         title,
@@ -59,6 +64,8 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
       ) {
         setError(error.response.data.message)
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -119,10 +126,11 @@ const AddEditNotes = ({ noteData, type, getAllNotes, onClose,showToastMessage })
       {error && <p className="text-red-500 text-xs font-medium pt-4 animate-pulse">{error}</p>}
 
       <button 
-        className="btn-primary font-bold mt-8 py-4 uppercase tracking-widest" 
+        className="btn-primary font-bold mt-8 py-4 uppercase tracking-widest flex items-center justify-center" 
         onClick={handleAddNote}
+        disabled={isLoading}
       >
-        {type === "edit" ? "Update Note" : "Save Note"}
+        {isLoading ? <div className="loading-spinner"></div> : (type === "edit" ? "Update Note" : "Save Note")}
       </button>
     </div>
   )

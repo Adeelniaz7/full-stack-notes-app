@@ -21,4 +21,19 @@ axiosInstance.interceptors.request.use(
         return Promise.reject(error);
     }
 );
+
+axiosInstance.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        if (error.response && error.response.status === 401) {
+            // Clear token and redirect to login if session is invalid
+            localStorage.clear();
+            window.location.href = "/login";
+        }
+        return Promise.reject(error);
+    }
+);
+
 export default axiosInstance;
